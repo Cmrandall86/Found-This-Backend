@@ -1,6 +1,7 @@
-import blockContent from './blockContent'
-import category from './category'
-import post from './post'
-import author from './author'
+// schemaTypes/index.js
+import blogPost from './blogPost';
+import user from './user';
+import feedback from './feedback';
 
-export const schemaTypes = [post, author, category, blockContent]
+export const schemaTypes = [blogPost, user, feedback];
+
