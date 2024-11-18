@@ -23,6 +23,12 @@ export default {
         readOnly: true,
       },
     },
-    // Add other fields as needed
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "Add tags to help categorize your product",
+    },
   ],
 };
