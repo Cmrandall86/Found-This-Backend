@@ -30,7 +30,7 @@ export default {
     {
       name: "previewImage",
       title: "Preview Image",
-      type: "string",  // Store the URL directly
+      type: "url",  // Changed to url type for better validation
       description: "Product preview image URL"
     },
     {
