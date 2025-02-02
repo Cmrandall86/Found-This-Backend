@@ -30,7 +30,7 @@ export default {
     {
       name: "previewImage",
       title: "Preview Image",
-      type: "url",  // Changed to url type for better validation
+      type: "string",
       description: "Product preview image URL"
     },
     {
@@ -73,8 +73,14 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'description',
-      media: 'previewImage'
+      subtitle: 'description'
+    },
+    prepare(selection) {
+      const {title, subtitle} = selection;
+      return {
+        title: title || 'Untitled',
+        subtitle: subtitle?.slice(0, 50) + (subtitle?.length > 50 ? '...' : '') || 'No description'
+      };
     }
   }
 };
