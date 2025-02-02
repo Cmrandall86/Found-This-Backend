@@ -28,6 +28,24 @@ export default {
       validation: Rule => Rule.required().min(0).precision(2)
     },
     {
+      name: "previewImage",
+      title: "Preview Image",
+      type: "string",  // Store the URL directly
+      description: "Product preview image URL"
+    },
+    {
+      name: "previewTitle",
+      title: "Preview Title",
+      type: "string",
+      description: "Product preview title"
+    },
+    {
+      name: "previewDescription",
+      title: "Preview Description",
+      type: "text",
+      description: "Product preview description"
+    },
+    {
       name: "createdAt",
       title: "Created At",
       type: "datetime",
@@ -56,30 +74,7 @@ export default {
     select: {
       title: 'title',
       subtitle: 'description',
-      media: 'productURL'
-    },
-    prepare(selection) {
-      const {title, subtitle} = selection;
-      return {
-        title: title || 'Untitled',
-        subtitle: subtitle?.slice(0, 50) + (subtitle?.length > 50 ? '...' : '') || 'No description'
-      };
+      media: 'previewImage'
     }
-  },
-  orderings: [
-    {
-      title: 'Created At, New',
-      name: 'createdAtDesc',
-      by: [
-        {field: 'createdAt', direction: 'desc'}
-      ]
-    },
-    {
-      title: 'Price, Low to High',
-      name: 'priceAsc',
-      by: [
-        {field: 'price', direction: 'asc'}
-      ]
-    }
-  ]
+  }
 };
